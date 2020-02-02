@@ -3,7 +3,7 @@
 import time
 
 
-class TicToc:  # pylint: disable=too-many-instance-attributes
+class TicToc:
     """
     TicToc provides a simple mechanism to measure the wall time (a stopwatch) with a reasonable accuracy.
 
@@ -66,7 +66,6 @@ class TicToc:  # pylint: disable=too-many-instance-attributes
         self.state = 'off'
         self.verbose = verbose
         self.report_invocations = report_invocations
-        self.counter = 0
         if start is True:
             self.start()
 
@@ -90,7 +89,6 @@ class TicToc:  # pylint: disable=too-many-instance-attributes
         ret = self.__class__(self.name, False, self.verbose, self.report_invocations)
         ret.delta_time = self.delta_time + other.delta_time
         ret.times = self.times + other.times
-        ret.counter = self.counter + other.counter
         return ret
 
     def tic(self):
@@ -170,8 +168,6 @@ class TicToc:  # pylint: disable=too-many-instance-attributes
             ret = f'{self.name}: {ret}'
         if self.report_invocations or self.verbose:
             ret += f' ({self.times:,d} invocations)'
-            if self.counter:
-                ret += f' (counter: {self.counter:,d})'
         return ret
 
     def __repr__(self):
