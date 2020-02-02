@@ -47,3 +47,10 @@ tt.tic()
 
  
 
+## Installation
+
+Install the package using `pip`
+
+```bash
+pip install tictoc-borisgorelik
+```
